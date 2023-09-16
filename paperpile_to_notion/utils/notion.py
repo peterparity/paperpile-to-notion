@@ -74,6 +74,8 @@ def get_property(page, prop_name, prop_type):
         content = p["number"]
     elif prop_type == "url":
         content = p["url"]
+    elif prop_type == "multi_select":
+        content = ";".join(tag['name'] for tag in p["multi_select"])
     else:
         content = ""
     return content
@@ -93,6 +95,16 @@ def property_to_value(property_type, content):
                     "text": {"content": content[:2000]},
                     "type": "text",
                 }
+            ]
+        }
+    elif property_type == 'multi_select':
+        tags = content.split(";")
+        return {
+            "multi_select": [
+                {
+                    "name": tag
+                }
+                for tag in tags
             ]
         }
     elif property_type == "url":
