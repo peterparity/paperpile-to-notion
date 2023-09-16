@@ -108,5 +108,7 @@ def property_to_value(property_type, content):
             ]
         }
     elif property_type == "url":
+        if content == "":
+            content = None
         return {property_type: content}
     return {property_type: content}
