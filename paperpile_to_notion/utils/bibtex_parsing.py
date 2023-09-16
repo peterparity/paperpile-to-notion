@@ -15,6 +15,8 @@ def parser_customizations(record):
     if "author" in record:
         author_list = [rebuild_name(name) for name in record["author"]]
         record["author"] = ", ".join(author_list)
+    if "title" in record:
+        record["title"] = record["title"].replace('\n', ' ')
     if "keywords" in record:
         record["keywords"] = record["keywords"].replace('\n', ' ')
     return record
