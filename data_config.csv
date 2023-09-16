@@ -4,3 +4,4 @@ Title,rich_text,title
 Authors,rich_text,author
 Year,rich_text,year
 Tags,multi_select,keywords
+URL,url,url
