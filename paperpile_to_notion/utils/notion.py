@@ -92,7 +92,7 @@ def property_to_value(property_type, content):
         return {
             "rich_text": [
                 {
-                    "text": {"content": content[:2000]},
+                    "text": {"content": content[:CHAR_LIMIT]},
                     "type": "text",
                 }
             ]
