@@ -98,7 +98,10 @@ def property_to_value(property_type, content):
             ]
         }
     elif property_type == 'multi_select':
-        tags = content.split(";")
+        if content == "":
+            tags = []
+        else:
+            tags = content.split(";")
         return {
             "multi_select": [
                 {
